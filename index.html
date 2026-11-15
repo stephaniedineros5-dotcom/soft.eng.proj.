@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BS Information Technology | 3rd Year Student Portfolio</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            obsidian: '#0b0f19',
+            surface: '#111827',
+            surfaceLight: '#1e293b',
+            indigoAccent: '#6366f1',
+            violetAccent: '#8b5cf6',
+            cyanAccent: '#06b6d4',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0b0f19;
+      color: #f8fafc;
+      overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Glassmorphism Utilities */
+    .glass-nav {
+      background: rgba(11, 15, 25, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(99, 102, 241, 0.18);
+    }
+
+    .glass-card {
+      background: rgba(17, 24, 39, 0.78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .glass-card:hover {
+      border-color: rgba(99, 102, 241, 0.45);
+      box-shadow: 0 12px 32px -8px rgba(99, 102, 241, 0.22);
+    }
+
+    .glass-modal {
+      background: rgba(11, 15, 25, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0b0f19;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4f46e5;
+    }
+  </style>
+</head>
+<body class="selection:bg-indigo-500 selection:text-white">
+
+  <!-- ==================== NAVIGATION BAR ==================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand / Course Identity -->
+      <a href="#home" class="flex items-center gap-2.5 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center text-white font-display font-bold text-lg shadow-lg shadow-indigo-600/30 group-hover:scale-105 transition">
+          &lt;/&gt;
+        </div>
+        <span class="font-display font-bold text-base sm:text-lg tracking-tight text-white">
+          BSIT <span class="text-indigo-400">3rd Year</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-1 bg-surface/80 p-1.5 rounded-2xl border border-white/10">
+        <a href="#home" class="nav-link px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition">Home</a>
+        <a href="#about" class="nav-link px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition">About</a>
+        <a href="#skills" class="nav-link px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition">Skills</a>
+        <a href="#projects" class="nav-link px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition">Projects &amp; Systems</a>
+        <a href="#education" class="nav-link px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition">Education</a>
+        <a href="#contact" class="nav-link px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition">Contact</a>
+      </nav>
+
+      <!-- GitHub Repository CTA & Mobile Menu Toggle -->
+      <div class="flex items-center gap-3">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+           class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surfaceLight/80 hover:bg-indigo-600/20 border border-white/10 hover:border-indigo-500/50 text-xs font-semibold text-slate-200 transition">
+          <i class="fa-brands fa-github text-base text-indigo-400"></i>
+          <span>GitHub Repository</span>
+        </a>
+
+        <button id="mobile-menu-btn" aria-label="Toggle Menu"
+                class="md:hidden w-10 h-10 rounded-xl bg-surface border border-white/10 text-slate-300 flex items-center justify-center hover:bg-surfaceLight transition">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-white/10 px-6 py-5 space-y-3">
+      <a href="#home" class="mobile-link block text-sm font-semibold text-slate-300 hover:text-indigo-400 py-1">Home</a>
+      <a href="#about" class="mobile-link block text-sm font-semibold text-slate-300 hover:text-indigo-400 py-1">About</a>
+      <a href="#skills" class="mobile-link block text-sm font-semibold text-slate-300 hover:text-indigo-400 py-1">Skills</a>
+      <a href="#projects" class="mobile-link block text-sm font-semibold text-slate-300 hover:text-indigo-400 py-1">Projects &amp; Systems</a>
+      <a href="#education" class="mobile-link block text-sm font-semibold text-slate-300 hover:text-indigo-400 py-1">Education</a>
+      <a href="#contact" class="mobile-link block text-sm font-semibold text-slate-300 hover:text-indigo-400 py-1">Contact</a>
+      <div class="pt-3 border-t border-white/10">
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+           class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-indigo-600/30 border border-indigo-500/40 text-indigo-300 text-xs font-semibold">
+          <i class="fa-brands fa-github"></i> GitHub Repository
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTAINER ==================== -->
+  <main class="pt-20">
+
+    <!-- ==================== 1. HOME / HERO SECTION ==================== -->
+    <section id="home" class="relative min-h-[90vh] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <!-- Background Glow Blobs -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="absolute bottom-10 right-10 w-80 h-80 bg-cyan-600/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+      <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+        
+        <!-- Left Hero Content -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs sm:text-sm font-medium">
+            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+            Open to Internships &amp; Collaborative Projects
+          </div>
+
+          <h1 class="font-display font-extrabold text-3xl sm:text-5xl lg:text-[3.35rem] tracking-tight text-white leading-[1.14]">
+            3rd Year Bachelor of Science in <br class="hidden sm:inline" />
+            <span class="bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent">
+              Information Technology
+            </span>
+          </h1>
+
+          <p class="font-display font-semibold text-lg sm:text-xl text-cyan-300">
+            Full-Stack Web Developer &amp; Systems Builder
+          </p>
+
+          <p class="text-slate-400 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+            A dedicated <strong class="text-slate-200 font-semibold">3rd Year IT Student</strong> specializing in designing responsive web interfaces, relational database schemas, and practical full-stack management systems using PHP, MySQL, HTML5, CSS3, and modern JavaScript.
+          </p>
+
+          <!-- Primary & Secondary CTA Buttons -->
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#projects"
+               class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold text-sm shadow-lg shadow-indigo-600/30 transition transform hover:-translate-y-0.5">
+              <i class="fa-solid fa-rocket"></i>
+              <span>Explore Live Systems</span>
+            </a>
+
+            <a href="#contact"
+               class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-surface hover:bg-surfaceLight border border-white/15 hover:border-cyan-400/50 text-slate-200 font-semibold text-sm transition">
+              <i class="fa-regular fa-paper-plane text-cyan-400"></i>
+              <span>Get In Touch</span>
+            </a>
+          </div>
+
+          <!-- Quick Tech & GitHub Links -->
+          <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-5 text-slate-400 text-sm">
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center gap-2">
+              <i class="fa-brands fa-github text-lg text-indigo-400"></i> github.com/bsit-dev
+            </a>
+            <span class="hidden sm:inline text-slate-700">|</span>
+            <span class="flex items-center gap-2">
+              <i class="fa-solid fa-code-branch text-cyan-400"></i> 3 Live Interactive Systems Built-In
+            </span>
+          </div>
+        </div>
+
+        <!-- Right Profile Photo Card -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative group w-72 sm:w-80">
+            <!-- Outer Gradient Ring -->
+            <div class="absolute -inset-1.5 rounded-3xl bg-gradient-to-tr from-indigo-600 via-violet-500 to-cyan-400 opacity-70 blur-md group-hover:opacity-100 transition duration-500"></div>
+            
+            <div class="relative glass-card rounded-3xl p-4">
+              <!-- Profile Image Wrapper -->
+              <div class="relative w-full aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10">
+                <!-- =====================================================================
+                     HOW TO DISPLAY YOUR OWN PHOTO ON GITHUB:
+                     1. Save your photo as "profile.jpg" in the same folder as index.html
+                     2. It will automatically load! If "profile.jpg" is not found yet,
+                        the clean developer fallback SVG below displays automatically.
+                     ===================================================================== -->
+                <img id="profile-photo-img"
+                     src="profile.jpg"
+                     onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 400 400%27%3E%3Cdefs%3E%3ClinearGradient id=%27bg%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%27100%25%27%3E%3Cstop offset=%270%25%27 stop-color=%27%231e1b4b%27/%3E%3Cstop offset=%27100%25%27 stop-color=%27%230f172a%27/%3E%3C/linearGradient%3E%3ClinearGradient id=%27accent%27 x1=%270%25%27 y1=%270%25%27 x2=%27100%25%27 y2=%270%25%27%3E%3Cstop offset=%270%25%27 stop-color=%27%236366f1%27/%3E%3Cstop offset=%27100%25%27 stop-color=%27%2306b6d4%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%27400%27 height=%27400%27 fill=%27url(%23bg)%27/%3E%3Ccircle cx=%27200%27 cy=%27148%27 r=%2764%27 fill=%27url(%23accent)%27 opacity=%270.9%27/%3E%3Cpath d=%27M90 365 C90 285, 310 285, 310 365%27 fill=%27url(%23accent)%27 opacity=%270.85%27/%3E%3Ctext x=%27200%27 y=%27386%27 font-family=%27sans-serif%27 font-size=%2713%27 fill=%27%23cbd5e1%27 text-anchor=%27middle%27%3EPlace profile.jpg in Folder or Click to Upload%3C/text%3E%3C/svg%3E';"
+                     alt="3rd Year BS Information Technology Student Profile Photo"
+                     class="w-full h-full object-cover transition duration-300 group-hover:scale-105" />
+
+                <!-- Hover Upload / Swap Overlay -->
+                <label for="photo-upload-input"
+                       class="absolute inset-0 bg-obsidian/75 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex flex-col items-center justify-center cursor-pointer p-4 text-center">
+                  <div class="w-12 h-12 rounded-full bg-indigo-600/90 text-white flex items-center justify-center mb-2 shadow-lg">
+                    <i class="fa-solid fa-camera text-lg"></i>
+                  </div>
+                  <span class="text-sm font-semibold text-white">Upload / Replace Photo</span>
+                  <span class="text-xs text-slate-300 mt-1">Preview your photo instantly in browser</span>
+                </label>
+                <input type="file" id="photo-upload-input" accept="image/*" class="hidden" />
+              </div>
+
+              <!-- Status Caption Under Photo -->
+              <div class="mt-4 flex items-center justify-between px-1">
+                <div>
+                  <p class="font-display font-bold text-white text-sm sm:text-base">BS Information Technology</p>
+                  <p class="text-xs text-slate-400">3rd Year College Student • Web Dev</p>
+                </div>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-medium">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Active
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== 2. ABOUT SECTION ==================== -->
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5 relative">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs font-bold uppercase tracking-widest text-indigo-400">About Me</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">Academic Profile &amp; Passion</h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-3">
+            Dedicated to learning industry-standard technologies and building reliable web solutions for academic and practical environments.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <!-- Narrative Bio -->
+          <div class="lg:col-span-7 glass-card rounded-2xl p-6 sm:p-8 space-y-4">
+            <h3 class="font-display font-bold text-xl text-white flex items-center gap-2.5">
+              <i class="fa-solid fa-terminal text-indigo-400"></i>
+              <span>3rd Year BSIT Journey &amp; Focus</span>
+            </h3>
+            <p class="text-slate-300 leading-relaxed text-sm sm:text-base">
+              Currently pursuing a <strong class="text-white">Bachelor of Science in Information Technology (3rd Year Level)</strong> with a strong focus on full-stack web development, database architecture, and practical software engineering. What began as curiosity about how web applications process and store data has grown into developing complete digital systems for campus offices, laboratories, and local enterprises.
+            </p>
+            <p class="text-slate-400 leading-relaxed text-sm sm:text-base">
+              From designing normalized relational schemas in <span class="text-cyan-400 font-medium">MySQL</span> and server-side workflows in <span class="text-indigo-400 font-medium">PHP</span> to crafting responsive user interfaces with <span class="text-violet-400 font-medium">HTML5, CSS3, and JavaScript</span>, every project is engineered for clarity, speed, and real-world usability.
+            </p>
+            <div class="pt-2 flex flex-wrap gap-3">
+              <span class="px-3 py-1.5 rounded-xl bg-surfaceLight border border-white/10 text-xs font-semibold text-slate-300">
+                <i class="fa-solid fa-check text-indigo-400 mr-1.5"></i> Clean Code Architecture
+              </span>
+              <span class="px-3 py-1.5 rounded-xl bg-surfaceLight border border-white/10 text-xs font-semibold text-slate-300">
+                <i class="fa-solid fa-check text-indigo-400 mr-1.5"></i> Responsive Design
+              </span>
+              <span class="px-3 py-1.5 rounded-xl bg-surfaceLight border border-white/10 text-xs font-semibold text-slate-300">
+                <i class="fa-solid fa-check text-indigo-400 mr-1.5"></i> Database Design
+              </span>
+            </div>
+          </div>
+
+          <!-- Quick Stats / Highlights -->
+          <div class="lg:col-span-5 space-y-4">
+            <div class="glass-card rounded-2xl p-5 flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0">
+                <i class="fa-solid fa-graduation-cap text-xl"></i>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wider text-slate-400">Current Academic Standing</p>
+                <p class="font-display font-bold text-white text-base">3rd Year College Undergraduate</p>
+                <p class="text-xs text-slate-400">Bachelor of Science in Information Technology</p>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-5 flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+                <i class="fa-solid fa-code text-xl"></i>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wider text-slate-400">Primary Domain</p>
+                <p class="font-display font-bold text-white text-base">Web Systems &amp; Database Dev</p>
+                <p class="text-xs text-slate-400">Full-stack dynamic applications</p>
+              </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-5 flex items-center gap-4">
+              <div class="w-12 h-12 rounded-xl bg-purple-500/15 border border-purple-500/30 flex items-center justify-center text-purple-400 shrink-0">
+                <i class="fa-solid fa-folder-open text-xl"></i>
+              </div>
+              <div>
+                <p class="text-xs uppercase tracking-wider text-slate-400">Interactive Portfolio</p>
+                <p class="font-display font-bold text-white text-base">3+ Live Systems Included</p>
+                <p class="text-xs text-slate-400">Test every system live below without downloads</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. SKILLS SECTION ==================== -->
+    <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-surface/30">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs font-bold uppercase tracking-widest text-indigo-400">Technical Expertise</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">Skills &amp; Tech Stack</h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-3">
+            Proficient in front-end frameworks, backend scripting languages, database management systems, and version control tools.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Skill Card 1: Frontend -->
+          <div class="glass-card rounded-2xl p-6 space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+              <i class="fa-solid fa-laptop-code text-xl"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Frontend Development</h3>
+            <div class="space-y-2 text-xs text-slate-300">
+              <div class="flex items-center justify-between p-2 rounded-xl bg-obsidian/60 border border-white/5">
+                <span>HTML5 / CSS3 / Tailwind</span>
+                <span class="text-indigo-400 font-semibold">Advanced</span>
+              </div>
+              <div class="flex items-center justify-between p-2 rounded-xl bg-obsidian/60 border border-white/5">
+                <span>JavaScript (ES6+)</span>
+                <span class="text-indigo-400 font-semibold">Advanced</span>
+              </div>
+              <div class="flex items-center justify-between p-2 rounded-xl bg-obsidian/60 border border-white/5">
+                <span>Responsive UI / Flexbox</span>
+                <span class="text-indigo-400 font-semibold">Expert</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Card 2: Backend -->
+          <div class="glass-card rounded-2xl p-6 space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
+              <i class="fa-solid fa-server text-xl"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Backend &amp; Scripting</h3>
+            <div class="space-y-2 text-xs text-slate-300">
+              <div class="flex items-center justify-between p-2 rounded-xl bg-obsidian/60 border border-white/5">
+                <span>PHP (Server-side)</span>
+                <span class="text-cyan-400 font-semibold">Intermediate</span>
+              </div>
+              <div class="flex items-center justify-between p-2 rounded-xl bg-obsidian/60 border border-white/5">
+                <span>Node.js / Express</span>
+                <span class="text-cyan-400 font-semibold">Learning</span>
+              </div>
+              <div class="flex items-center justify-between p-2 rounded-xl bg-obsidian/60 border border-white/5">
+                <span>RESTful APIs</span>
+                <span class="text-cyan-400 font-semibold">Intermediate</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Card 3: Databases -->
+          <div class="glass-card rounded-2xl p-6 space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-violet-500/15 border border-violet-500/30 flex items-center justify-center text-violet-400">
+              <i class="fa-solid fa-database text-xl"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Databases &amp; Storage</h3>
+            <div class="space-y-2 text-xs text-slate-300">
+              <div class="flex items-center justify-between p-2 rounded-xl bg-obsidian/60 border border-white/5">
+                <span>MySQL / phpMyAdmin</span>
+                <span class="text-violet-400 font-semibold">Advanced</span>
+              </div>
+              <div class="flex items-center justify-between p-2 rounded-xl bg-obsidian/60 border border-white/5">
+                <span>Database Normalization</span>
+                <span class="text-violet-400 font-semibold">Advanced</span>
+              </div>
+              <div class="flex items-center justify-between p-2 rounded-xl bg-obsidian/60 border border-white/5">
+                <span>SQL Queries &amp; Joins</span>
+                <span class="text-violet-400 font-semibold">Advanced</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skill Card 4: Tools & Workflow -->
+          <div class="glass-card rounded-2xl p-6 space-y-4">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+              <i class="fa-solid fa-toolbox text-xl"></i>
+            </div>
+            <h3 class="font-display font-bold text-lg text-white">Tools &amp; Workflow</h3>
+            <div class="space-y-2 text-xs text-slate-300">
+              <div class="flex items-center justify-between p-2 rounded-xl bg-obsidian/60 border border-white/5">
+                <span>Git &amp; GitHub</span>
+                <span class="text-emerald-400 font-semibold">Proficient</span>
+              </div>
+              <div class="flex items-center justify-between p-2 rounded-xl bg-obsidian/60 border border-white/5">
+                <span>VS Code</span>
+                <span class="text-emerald-400 font-semibold">Expert</span>
+              </div>
+              <div class="flex items-center justify-between p-2 rounded-xl bg-obsidian/60 border border-white/5">
+                <span>XAMPP / Local Server</span>
+                <span class="text-emerald-400 font-semibold">Proficient</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. PROJECTS & LIVE SYSTEMS SECTION ==================== -->
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs font-bold uppercase tracking-widest text-indigo-400">Featured Portfolio Systems</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">Three Fully Working Web Systems</h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-3">
+            Click <strong class="text-white">"Launch Live System"</strong> on any project below to open and test the fully working application right here in your browser—no downloads or external files required!
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          
+          <!-- SYSTEM 1: Digital Queue & Appointment System -->
+          <div class="glass-card rounded-3xl overflow-hidden flex flex-col group">
+            <div class="p-6 bg-gradient-to-br from-indigo-900/40 via-surface to-surfaceLight border-b border-white/10 relative">
+              <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-indigo-300 text-[11px] font-semibold">
+                System 1 • Web App
+              </div>
+              <div class="w-12 h-12 rounded-2xl bg-indigo-600 flex items-center justify-center text-white text-xl shadow-lg mb-4">
+                <i class="fa-solid fa-ticket"></i>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white group-hover:text-indigo-300 transition">
+                Digital Queue &amp; Appointment System
+              </h3>
+              <p class="text-xs text-slate-400 mt-1">College Registrar &amp; Administrative Services</p>
+            </div>
+            
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-6">
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                An automated queuing web application designed for student enrollment and registrar counter transactions. Generates priority ticket numbers, tracks active serving counters, and manages live waiting lists.
+              </p>
+
+              <div class="space-y-3">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2.5 py-1 rounded-lg bg-surface border border-white/10 text-[11px] text-indigo-300">HTML5</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-surface border border-white/10 text-[11px] text-indigo-300">JavaScript</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-surface border border-white/10 text-[11px] text-indigo-300">Tailwind CSS</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-surface border border-white/10 text-[11px] text-indigo-300">MySQL Schema</span>
+                </div>
+
+                <button onclick="openSystemModal('queue')"
+                        class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold text-xs shadow-lg shadow-indigo-600/30 transition flex items-center justify-center gap-2 cursor-pointer">
+                  <i class="fa-solid fa-play text-[10px]"></i>
+                  <span>Launch Live System</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SYSTEM 2: IT Lab Equipment & Inventory Tracker -->
+          <div class="glass-card rounded-3xl overflow-hidden flex flex-col group">
+            <div class="p-6 bg-gradient-to-br from-cyan-900/40 via-surface to-surfaceLight border-b border-white/10 relative">
+              <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-[11px] font-semibold">
+                System 2 • Inventory Tracker
+              </div>
+              <div class="w-12 h-12 rounded-2xl bg-cyan-600 flex items-center justify-center text-white text-xl shadow-lg mb-4">
+                <i class="fa-solid fa-laptop-file"></i>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white group-hover:text-cyan-300 transition">
+                IT Lab Equipment Borrowing Tracker
+              </h3>
+              <p class="text-xs text-slate-400 mt-1">Computer Laboratory Asset Management</p>
+            </div>
+            
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-6">
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                A full inventory and borrowing tracker for IT hardware (laptops, projectors, networking switches, and testing tools). Allows students to request checkouts, view availability status badges, and log returns.
+              </p>
+
+              <div class="space-y-3">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2.5 py-1 rounded-lg bg-surface border border-white/10 text-[11px] text-cyan-300">PHP / PDO</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-surface border border-white/10 text-[11px] text-cyan-300">MySQL Database</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-surface border border-white/10 text-[11px] text-cyan-300">DOM Manipulation</span>
+                </div>
+
+                <button onclick="openSystemModal('inventory')"
+                        class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-semibold text-xs shadow-lg shadow-cyan-600/30 transition flex items-center justify-center gap-2 cursor-pointer">
+                  <i class="fa-solid fa-play text-[10px]"></i>
+                  <span>Launch Live System</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- SYSTEM 3: Micro-Business POS & Order Management System -->
+          <div class="glass-card rounded-3xl overflow-hidden flex flex-col group">
+            <div class="p-6 bg-gradient-to-br from-violet-900/40 via-surface to-surfaceLight border-b border-white/10 relative">
+              <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-violet-500/20 border border-violet-500/40 text-violet-300 text-[11px] font-semibold">
+                System 3 • POS &amp; Sales
+              </div>
+              <div class="w-12 h-12 rounded-2xl bg-violet-600 flex items-center justify-center text-white text-xl shadow-lg mb-4">
+                <i class="fa-solid fa-cash-register"></i>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white group-hover:text-violet-300 transition">
+                Micro-Business POS &amp; Order Tracker
+              </h3>
+              <p class="text-xs text-slate-400 mt-1">Point of Sale &amp; Sales Receipt Logger</p>
+            </div>
+            
+            <div class="p-6 flex-1 flex flex-col justify-between space-y-6">
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                A point-of-sale system tailored for small student enterprises and campus cafeterias. Features interactive item selection, cart total calculation, cash payment processing, and recent transaction logs.
+              </p>
+
+              <div class="space-y-3">
+                <div class="flex flex-wrap gap-1.5">
+                  <span class="px-2.5 py-1 rounded-lg bg-surface border border-white/10 text-[11px] text-violet-300">JavaScript ES6</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-surface border border-white/10 text-[11px] text-violet-300">Receipt Gen</span>
+                  <span class="px-2.5 py-1 rounded-lg bg-surface border border-white/10 text-[11px] text-violet-300">Local State</span>
+                </div>
+
+                <button onclick="openSystemModal('pos')"
+                        class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-semibold text-xs shadow-lg shadow-violet-600/30 transition flex items-center justify-center gap-2 cursor-pointer">
+                  <i class="fa-solid fa-play text-[10px]"></i>
+                  <span>Launch Live System</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. EDUCATION SECTION ==================== -->
+    <section id="education" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-surface/30">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs font-bold uppercase tracking-widest text-indigo-400">Academic Background</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">Education &amp; Coursework</h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-3">
+            Milestones in higher education and specialized IT instruction.
+          </p>
+        </div>
+
+        <div class="space-y-6 relative before:absolute before:inset-0 before:left-4 before:w-0.5 before:bg-indigo-500/30">
+          
+          <!-- Timeline Item 1 -->
+          <div class="relative pl-8 sm:pl-10">
+            <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-obsidian"></span>
+            <div class="glass-card rounded-2xl p-6">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="px-3 py-1 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-indigo-300 text-xs font-semibold">
+                  2024 – Present • 3rd Year College Student
+                </span>
+                <span class="text-xs text-cyan-400 font-medium">BSIT Undergraduate</span>
+              </div>
+              <h3 class="font-display font-bold text-xl text-white">Bachelor of Science in Information Technology (BSIT)</h3>
+              <p class="text-slate-400 text-sm mt-1">College of Computer Studies</p>
+
+              <div class="mt-4 pt-4 border-t border-white/10">
+                <p class="text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2.5">Core &amp; Completed Coursework:</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
+                  <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-indigo-400"></i> Web Systems &amp; Technologies</div>
+                  <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-indigo-400"></i> Database Management Systems (MySQL)</div>
+                  <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-400"></i> Object-Oriented Programming</div>
+                  <div class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-400"></i> Systems Integration &amp; Architecture</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2 -->
+          <div class="relative pl-8 sm:pl-10">
+            <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-cyan-400 ring-4 ring-obsidian"></span>
+            <div class="glass-card rounded-2xl p-6">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="px-3 py-1 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 text-xs font-semibold">
+                  2022 – 2024
+                </span>
+                <span class="text-xs text-slate-400">ICT / STEM Strand</span>
+              </div>
+              <h3 class="font-display font-bold text-lg text-white">Senior High School — Information &amp; Communications Technology</h3>
+              <p class="text-slate-400 text-sm mt-1">
+                Built foundational skills in HTML5, CSS3, computer networking fundamentals, hardware troubleshooting, and introductory programming logic.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. CONTACT SECTION ==================== -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-14">
+          <span class="text-xs font-bold uppercase tracking-widest text-indigo-400">Get In Touch</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-2">Connect &amp; Collaborate</h2>
+          <p class="text-slate-400 text-sm sm:text-base mt-3">
+            Looking for a 3rd-year BSIT intern, capstone collaborator, or web development partner? Send a message or copy the quick links below.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <!-- Direct Info & Quick Copy Cards -->
+          <div class="lg:col-span-5 space-y-4">
+            <div class="glass-card rounded-2xl p-5 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3.5 min-w-0">
+                <div class="w-11 h-11 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="truncate">
+                  <p class="text-xs text-slate-400">Student Developer Email</p>
+                  <p id="email-text" class="text-sm font-semibold text-white truncate">bsit.student.dev@campus.edu.ph</p>
+                </div>
+              </div>
+              <button onclick="copyText('bsit.student.dev@campus.edu.ph', 'Email address copied!')"
+                      class="px-3 py-2 rounded-xl bg-surfaceLight hover:bg-indigo-600/30 border border-white/10 text-xs font-semibold text-slate-200 transition shrink-0 cursor-pointer">
+                <i class="fa-regular fa-copy mr-1"></i>Copy
+              </button>
+            </div>
+
+            <div class="glass-card rounded-2xl p-5 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3.5 min-w-0">
+                <div class="w-11 h-11 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0">
+                  <i class="fa-brands fa-github"></i>
+                </div>
+                <div class="truncate">
+                  <p class="text-xs text-slate-400">GitHub Profile</p>
+                  <p class="text-sm font-semibold text-white truncate">github.com/bsit-dev</p>
+                </div>
+              </div>
+              <button onclick="copyText('https://github.com/bsit-dev', 'GitHub URL copied!')"
+                      class="px-3 py-2 rounded-xl bg-surfaceLight hover:bg-cyan-600/30 border border-white/10 text-xs font-semibold text-slate-200 transition shrink-0 cursor-pointer">
+                <i class="fa-regular fa-copy mr-1"></i>Copy
+              </button>
+            </div>
+
+            <div class="glass-card rounded-2xl p-5 space-y-2">
+              <p class="text-xs font-semibold uppercase tracking-wider text-indigo-400">GitHub Deployment Ready</p>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                This entire portfolio and all 3 interactive web systems live inside a single <code class="text-cyan-300">index.html</code> file—ready to push straight to GitHub Pages.
+              </p>
+            </div>
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <div class="lg:col-span-7 glass-card rounded-2xl p-6 sm:p-8">
+            <form id="contact-form" class="space-y-4" novalidate>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="contact-subject" class="block text-xs font-semibold text-slate-300 mb-1.5">Subject *</label>
+                  <input type="text" id="contact-subject" required placeholder="Internship / Project Collaboration"
+                         class="w-full px-4 py-3 rounded-xl bg-obsidian/90 border border-white/10 focus:border-indigo-500 focus:outline-none text-sm text-white placeholder-slate-500 transition" />
+                </div>
+                <div>
+                  <label for="contact-email" class="block text-xs font-semibold text-slate-300 mb-1.5">Your Email *</label>
+                  <input type="email" id="contact-email" required placeholder="sender@example.com"
+                         class="w-full px-4 py-3 rounded-xl bg-obsidian/90 border border-white/10 focus:border-indigo-500 focus:outline-none text-sm text-white placeholder-slate-500 transition" />
+                </div>
+              </div>
+
+              <div>
+                <label for="contact-message" class="block text-xs font-semibold text-slate-300 mb-1.5">Message *</label>
+                <textarea id="contact-message" rows="4" required placeholder="Write your message or project inquiry here..."
+                          class="w-full px-4 py-3 rounded-xl bg-obsidian/90 border border-white/10 focus:border-indigo-500 focus:outline-none text-sm text-white placeholder-slate-500 transition resize-none"></textarea>
+              </div>
+
+              <button type="submit"
+                      class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold text-sm shadow-lg shadow-indigo-600/25 transition flex items-center justify-center gap-2 cursor-pointer">
+                <i class="fa-solid fa-paper-plane"></i>
+                <span>Send Message</span>
+              </button>
+
+              <!-- Confirmation Banner -->
+              <div id="contact-success" class="hidden rounded-xl bg-emerald-500/15 border border-emerald-500/40 p-4 text-xs sm:text-sm text-emerald-300 flex items-center gap-3">
+                <i class="fa-solid fa-circle-check text-lg text-emerald-400"></i>
+                <div>
+                  <p class="font-semibold">Message Sent Successfully!</p>
+                  <p class="text-emerald-200/80 text-xs">Thank you for reaching out. Your inquiry has been received.</p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="relative z-10 border-t border-white/10 bg-obsidian/90 py-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <p>&copy; <span id="current-year">2026</span> BS Information Technology Portfolio. Built with HTML, CSS &amp; JavaScript.</p>
+      <div class="flex items-center gap-5">
+        <a href="#home" class="hover:text-indigo-400 transition">Back to Top ↑</a>
+        <a href="#projects" class="hover:text-cyan-400 transition">Live Systems</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== SYSTEM LAUNCHER MODAL ==================== -->
+  <div id="system-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-obsidian/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+    <div class="relative w-full max-w-4xl max-h-[90vh] glass-modal rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-indigo-500/30">
+      
+      <!-- Modal Header -->
+      <div class="px-6 py-4 bg-surface/90 border-b border-white/10 flex items-center justify-between shrink-0">
+        <div class="flex items-center gap-3">
+          <div id="modal-system-icon" class="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-md">
+            <i class="fa-solid fa-terminal text-sm"></i>
+          </div>
+          <div>
+            <h3 id="modal-system-title" class="font-display font-bold text-white text-base">System Title</h3>
+            <p id="modal-system-subtitle" class="text-xs text-slate-400">Interactive In-Browser Demonstration</p>
+          </div>
+        </div>
+
+        <button onclick="closeSystemModal()" aria-label="Close Modal"
+                class="w-9 h-9 rounded-xl bg-obsidian border border-white/10 hover:border-red-500/50 text-slate-300 hover:text-red-400 flex items-center justify-center transition cursor-pointer">
+          <i class="fa-solid fa-xmark text-base"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (Dynamic System Container) -->
+      <div id="modal-system-body" class="p-6 overflow-y-auto flex-1 space-y-6">
+        <!-- System injected here via JS -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="glass-card rounded-2xl px-5 py-3.5 border border-indigo-500/40 bg-obsidian/95 shadow-xl flex items-center gap-3 text-xs sm:text-sm text-white">
+      <i id="toast-icon" class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+      <span id="toast-text">Action completed successfully.</span>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    // Set Footer Year Automatically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Mobile Menu Toggle
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Profile Photo Upload Previewer
+    const photoInput = document.getElementById('photo-upload-input');
+    const photoImg = document.getElementById('profile-photo-img');
+
+    photoInput.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(evt) {
+          photoImg.src = evt.target.result;
+          showToast('Profile photo updated for preview!', 'success');
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Copy to Clipboard Utility
+    function copyText(text, successMessage) {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(successMessage, 'success');
+        }).catch(() => {
+          fallbackCopyText(text, successMessage);
+        });
+      } else {
+        fallbackCopyText(text, successMessage);
+      }
+    }
+
+    function fallbackCopyText(text, successMessage) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast(successMessage, 'success');
+      } catch (err) {
+        showToast('Failed to copy text.', 'error');
+      }
+      document.body.removeChild(textArea);
+    }
+
+    // Toast Notification System
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast-notification');
+      const toastText = document.getElementById('toast-text');
+      const toastIcon = document.getElementById('toast-icon');
+
+      toastText.textContent = message;
+      if (type === 'success') {
+        toastIcon.className = 'fa-solid fa-circle-check text-emerald-400 text-base';
+      } else {
+        toastIcon.className = 'fa-solid fa-triangle-exclamation text-amber-400 text-base';
+      }
+
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 3500);
+    }
+
+    // ---------------- CONTACT FORM SUBMISSION ----------------
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const subject = document.getElementById('contact-subject').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const msg = document.getElementById('contact-message').value.trim();
+
+      if (!subject || !email || !msg) {
+        showToast('Please fill in Subject, Email, and Message.', 'error');
+        return;
+      }
+
+      document.getElementById('contact-success').classList.remove('hidden');
+      showToast('Thank you! Your message has been sent.', 'success');
+      e.target.reset();
+    });
+
+    // =========================================================================
+    // MODAL & LIVE SYSTEMS ROUTING
+    // =========================================================================
+    function openSystemModal(systemKey) {
+      const modal = document.getElementById('system-modal');
+      const title = document.getElementById('modal-system-title');
+      const subtitle = document.getElementById('modal-system-subtitle');
+      const icon = document.getElementById('modal-system-icon');
+
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.classList.remove('opacity-0');
+      }, 10);
+
+      if (systemKey === 'queue') {
+        title.textContent = 'Digital Queue & Appointment Management System';
+        subtitle.textContent = 'College Registrar Counter Management Demo';
+        icon.className = 'fa-solid fa-ticket text-sm';
+        icon.parentElement.className = 'w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-md';
+        renderQueueSystem();
+      } else if (systemKey === 'inventory') {
+        title.textContent = 'IT Lab Equipment Borrowing & Inventory Tracker';
+        subtitle.textContent = 'Hardware Asset Management & Check-out Demo';
+        icon.className = 'fa-solid fa-laptop-file text-sm';
+        icon.parentElement.className = 'w-9 h-9 rounded-xl bg-cyan-600 flex items-center justify-center text-white shadow-md';
+        renderInventorySystem();
+      } else if (systemKey === 'pos') {
+        title.textContent = 'Micro-Business POS & Order Management System';
+        subtitle.textContent = 'Campus Café Point of Sale & Receipt Logger';
+        icon.className = 'fa-solid fa-cash-register text-sm';
+        icon.parentElement.className = 'w-9 h-9 rounded-xl bg-violet-600 flex items-center justify-center text-white shadow-md';
+        renderPosSystem();
+      }
+    }
+
+    function closeSystemModal() {
+      const modal = document.getElementById('system-modal');
+      modal.classList.add('opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300);
+    }
+
+    window.addEventListener('click', (e) => {
+      const modal = document.getElementById('system-modal');
+      if (e.target === modal) {
+        closeSystemModal();
+      }
+    });
+
+    // =========================================================================
+    // LIVE SYSTEM 1: DIGITAL QUEUE & APPOINTMENT MANAGEMENT SYSTEM
+    // =========================================================================
+    let queueCounter = 104;
+    let nowServing = { ticket: 'REG-100', studentId: '2024-0105', service: 'Transcript of Records' };
+    let queueList = [
+      { ticket: 'REG-101', studentId: '2024-0182', service: 'Registrar • Enrollment Assessment', time: '09:15 AM' },
+      { ticket: 'CSH-102', studentId: '2023-0941', service: 'Cashier • Tuition Fee Payment', time: '09:22 AM' },
+      { ticket: 'DEN-103', studentId: '2024-0419', service: "Dean's Office • Academic Advising", time: '09:30 AM' }
+    ];
+
+    function renderQueueSystem() {
+      const body = document.getElementById('modal-system-body');
+      body.innerHTML = `
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Book Appointment Form -->
+          <div class="lg:col-span-5 bg-obsidian/90 border border-white/10 rounded-2xl p-5 space-y-4">
+            <h4 class="font-display font-bold text-white text-base flex items-center gap-2">
+              <i class="fa-solid fa-calendar-plus text-indigo-400"></i> Book Student Queue Ticket
+            </h4>
+            <form id="queue-booking-form" class="space-y-3">
+              <div>
+                <label class="block text-xs text-slate-400 mb-1">Student ID Number</label>
+                <input type="text" id="q-student-id" required placeholder="e.g., 2024-1054"
+                       class="w-full px-3.5 py-2.5 rounded-xl bg-surface border border-white/10 text-sm text-white focus:border-indigo-500 focus:outline-none" />
+              </div>
+              <div>
+                <label class="block text-xs text-slate-400 mb-1">Course &amp; Year Level</label>
+                <input type="text" id="q-course-year" required value="BSIT - 3rd Year"
+                       class="w-full px-3.5 py-2.5 rounded-xl bg-surface border border-white/10 text-sm text-white focus:border-indigo-500 focus:outline-none" />
+              </div>
+              <div>
+                <label class="block text-xs text-slate-400 mb-1">Office Transaction</label>
+                <select id="q-service"
+                        class="w-full px-3.5 py-2.5 rounded-xl bg-surface border border-white/10 text-sm text-white focus:border-indigo-500 focus:outline-none">
+                  <option value="Registrar • Enrollment Assessment">Registrar • Enrollment Assessment</option>
+                  <option value="Registrar • Certificate of Grades">Registrar • Certificate of Grades</option>
+                  <option value="Cashier • Tuition Fee Payment">Cashier • Tuition Fee Payment</option>
+                  <option value="Dean's Office • Academic Advising">Dean's Office • Academic Advising</option>
+                </select>
+              </div>
+              <button type="submit"
+                      class="w-full py-2.5 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-sm transition cursor-pointer">
+                <i class="fa-solid fa-ticket mr-1.5"></i> Generate Queue Ticket
+              </button>
+            </form>
+          </div>
+
+          <!-- Live Queue Display & Counter Controls -->
+          <div class="lg:col-span-7 space-y-4">
+            <!-- Now Serving Banner -->
+            <div class="rounded-2xl bg-gradient-to-r from-indigo-900/60 to-cyan-900/50 border border-indigo-400/30 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-cyan-300">Now Serving at Counter</span>
+                <div class="flex items-baseline gap-3 mt-1">
+                  <span class="font-display font-extrabold text-3xl text-white">${nowServing.ticket}</span>
+                  <span class="text-sm font-medium text-slate-200">ID: ${nowServing.studentId}</span>
+                </div>
+                <p class="text-xs text-slate-300 mt-0.5">${nowServing.service}</p>
+              </div>
+              <button onclick="serveNextTicket()"
+                      class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs sm:text-sm shadow-lg transition cursor-pointer shrink-0">
+                <i class="fa-solid fa-forward-step mr-1.5"></i> Call Next / Complete
+              </button>
+            </div>
+
+            <!-- Waiting Queue Table -->
+            <div class="bg-obsidian/90 border border-white/10 rounded-2xl p-4">
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="font-display font-bold text-sm text-white">Waiting List (${queueList.length} Tickets)</h4>
+                <span class="text-xs text-slate-400">FIFO Priority Order</span>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs">
+                  <thead class="text-slate-400 border-b border-white/10">
+                    <tr>
+                      <th class="pb-2">Ticket #</th>
+                      <th class="pb-2">Student ID</th>
+                      <th class="pb-2">Transaction</th>
+                      <th class="pb-2 text-right">Booked</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-white/5 text-slate-200">
+                    ${queueList.length === 0
+                      ? `<tr><td colspan="4" class="py-6 text-center text-slate-400">No tickets waiting in queue. Generate a ticket on the left!</td></tr>`
+                      : queueList.map(item => `
+                        <tr>
+                          <td class="py-2.5 font-bold text-indigo-400">${item.ticket}</td>
+                          <td class="py-2.5">${item.studentId}</td>
+                          <td class="py-2.5 text-slate-300">${item.service}</td>
+                          <td class="py-2.5 text-right text-slate-400">${item.time}</td>
+                        </tr>
+                      `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+
+      document.getElementById('queue-booking-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const studentId = document.getElementById('q-student-id').value.trim();
+        const service = document.getElementById('q-service').value;
+        const prefix = service.startsWith('Cashier') ? 'CSH' : service.startsWith("Dean") ? 'DEN' : 'REG';
+        const ticket = `${prefix}-${queueCounter++}`;
+        const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+        queueList.push({ ticket, studentId, service, time });
+        showToast(`Ticket ${ticket} generated for ID ${studentId}!`, 'success');
+        renderQueueSystem();
+      });
+    }
+
+    function serveNextTicket() {
+      if (queueList.length === 0) {
+        showToast('All waiting tickets have been served!');
+        return;
+      }
+      const next = queueList.shift();
+      nowServing = { ticket: next.ticket, studentId: next.studentId, service: next.service };
+      showToast(`Now serving ${next.ticket} (ID: ${next.studentId})`, 'success');
+      renderQueueSystem();
+    }
+
+    // =========================================================================
+    // LIVE SYSTEM 2: CAMPUS INVENTORY & EQUIPMENT BORROWING TRACKER
+    // =========================================================================
+    let inventoryFilter = 'all';
+    let inventoryItems = [
+      { id: 'IT-001', name: 'Dell Latitude 5430 Laptop', category: 'Computing', status: 'Available', borrower: '-' },
+      { id: 'IT-002', name: 'Epson EB-X51 HD Projector', category: 'AV Gear', status: 'Borrowed', borrower: 'ID: 2023-0412 (BSIT-3A)' },
+      { id: 'IT-003', name: 'Cisco 2960 Managed Switch', category: 'Networking', status: 'Available', borrower: '-' },
+      { id: 'IT-004', name: 'RJ45 Crimping & LAN Tester Kit', category: 'Networking', status: 'Available', borrower: '-' },
+      { id: 'IT-005', name: 'Wacom Intuos Drawing Tablet', category: 'Peripherals', status: 'Borrowed', borrower: 'ID: 2024-0881 (BSIT-3B)' }
+    ];
+
+    function renderInventorySystem() {
+      const body = document.getElementById('modal-system-body');
+      const availableCount = inventoryItems.filter(i => i.status === 'Available').length;
+      const borrowedCount = inventoryItems.filter(i => i.status === 'Borrowed').length;
+
+      const filtered = inventoryItems.filter(item => {
+        if (inventoryFilter === 'available') return item.status === 'Available';
+        if (inventoryFilter === 'borrowed') return item.status === 'Borrowed';
+        return true;
+      });
+
+      body.innerHTML = `
+        <!-- Top Stats & Filter Bar -->
+        <div class="flex flex-wrap items-center justify-between gap-4 bg-obsidian/90 border border-white/10 rounded-2xl p-4">
+          <div class="flex items-center gap-4 text-xs sm:text-sm">
+            <span class="px-3 py-1.5 rounded-xl bg-emerald-500/15 text-emerald-300 font-semibold">
+              Available: ${availableCount}
+            </span>
+            <span class="px-3 py-1.5 rounded-xl bg-amber-500/15 text-amber-300 font-semibold">
+              Borrowed: ${borrowedCount}
+            </span>
+          </div>
+
+          <div class="flex items-center gap-2 text-xs">
+            <button onclick="setInventoryFilter('all')" class="px-3 py-1.5 rounded-lg ${inventoryFilter === 'all' ? 'bg-indigo-600 text-white' : 'bg-surface text-slate-300'} font-semibold cursor-pointer">All (${inventoryItems.length})</button>
+            <button onclick="setInventoryFilter('available')" class="px-3 py-1.5 rounded-lg ${inventoryFilter === 'available' ? 'bg-indigo-600 text-white' : 'bg-surface text-slate-300'} font-semibold cursor-pointer">Available</button>
+            <button onclick="setInventoryFilter('borrowed')" class="px-3 py-1.5 rounded-lg ${inventoryFilter === 'borrowed' ? 'bg-indigo-600 text-white' : 'bg-surface text-slate-300'} font-semibold cursor-pointer">Borrowed</button>
+          </div>
+        </div>
+
+        <!-- Quick Checkout & Add Device Forms -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
+          <form id="borrow-form" class="flex flex-col sm:flex-row gap-2 bg-obsidian/90 border border-white/10 rounded-2xl p-3.5">
+            <select id="borrow-asset-id" class="flex-1 px-3 py-2 rounded-xl bg-surface border border-white/10 text-xs text-white focus:border-cyan-400 focus:outline-none">
+              ${inventoryItems.filter(i => i.status === 'Available').map(i => `<option value="${i.id}">${i.id} — ${i.name}</option>`).join('') || '<option value="">No items available</option>'}
+            </select>
+            <input type="text" id="borrower-student-input" required placeholder="Student ID (e.g. 2024-0211)"
+                   class="sm:w-44 px-3 py-2 rounded-xl bg-surface border border-white/10 text-xs text-white focus:border-cyan-400 focus:outline-none" />
+            <button type="submit" class="px-3.5 py-2 rounded-xl bg-cyan-600 hover:bg-cyan-500 text-white font-semibold text-xs transition cursor-pointer shrink-0">
+              Borrow
+            </button>
+          </form>
+
+          <form id="add-device-form" class="flex flex-col sm:flex-row gap-2 bg-obsidian/90 border border-white/10 rounded-2xl p-3.5">
+            <input type="text" id="new-device-name" required placeholder="Add New Lab Device Name..."
+                   class="flex-1 px-3 py-2 rounded-xl bg-surface border border-white/10 text-xs text-white focus:border-indigo-400 focus:outline-none" />
+            <select id="new-device-cat" class="px-3 py-2 rounded-xl bg-surface border border-white/10 text-xs text-white focus:border-indigo-400 focus:outline-none">
+              <option value="Computing">Computing</option>
+              <option value="Networking">Networking</option>
+              <option value="AV Gear">AV Gear</option>
+            </select>
+            <button type="submit" class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs transition cursor-pointer shrink-0">
+              + Add Asset
+            </button>
+          </form>
+        </div>
+
+        <!-- Equipment Table -->
+        <div class="bg-obsidian/90 border border-white/10 rounded-2xl p-4 overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead class="text-slate-400 border-b border-white/10">
+              <tr>
+                <th class="pb-2.5">Asset Tag</th>
+                <th class="pb-2.5">Equipment Name</th>
+                <th class="pb-2.5">Category</th>
+                <th class="pb-2.5">Status</th>
+                <th class="pb-2.5">Borrower ID</th>
+                <th class="pb-2.5 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/5 text-slate-200">
+              ${filtered.map(item => `
+                <tr>
+                  <td class="py-3 font-bold text-cyan-400">${item.id}</td>
+                  <td class="py-3 font-medium">${item.name}</td>
+                  <td class="py-3 text-slate-400">${item.category}</td>
+                  <td class="py-3">
+                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-semibold ${item.status === 'Available' ? 'bg-emerald-500/15 text-emerald-300' : 'bg-amber-500/15 text-amber-300'}">
+                      ${item.status}
+                    </span>
+                  </td>
+                  <td class="py-3 text-slate-300">${item.borrower}</td>
+                  <td class="py-3 text-right">
+                    ${item.status === 'Borrowed'
+                      ? `<button onclick="returnEquipment('${item.id}')" class="px-3 py-1.5 rounded-lg bg-emerald-600/20 hover:bg-emerald-600 text-emerald-300 hover:text-white border border-emerald-500/30 font-semibold transition cursor-pointer">Mark Returned</button>`
+                      : `<span class="text-slate-500">Ready</span>`
+                    }
+                  </td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+
+      document.getElementById('borrow-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const assetId = document.getElementById('borrow-asset-id').value;
+        const borrower = document.getElementById('borrower-student-input').value.trim();
+        if (!assetId) {
+          showToast('No available equipment to check out right now.');
+          return;
+        }
+        const item = inventoryItems.find(i => i.id === assetId);
+        if (item) {
+          item.status = 'Borrowed';
+          item.borrower = `ID: ${borrower} (${new Date().toLocaleDateString()})`;
+          showToast(`${item.id} checked out to ID ${borrower}`, 'success');
+          renderInventorySystem();
+        }
+      });
+
+      document.getElementById('add-device-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('new-device-name').value.trim();
+        const category = document.getElementById('new-device-cat').value;
+        const newTag = `IT-00${inventoryItems.length + 1}`;
+        inventoryItems.push({ id: newTag, name, category, status: 'Available', borrower: '-' });
+        showToast(`Added ${newTag} (${name}) to lab inventory!`, 'success');
+        renderInventorySystem();
+      });
+    }
+
+    function setInventoryFilter(filter) {
+      inventoryFilter = filter;
+      renderInventorySystem();
+    }
+
+    function returnEquipment(assetId) {
+      const item = inventoryItems.find(i => i.id === assetId);
+      if (item) {
+        item.status = 'Available';
+        item.borrower = '-';
+        showToast(`${item.id} (${item.name}) marked as returned.`, 'success');
+        renderInventorySystem();
+      }
+    }
+
+    // =========================================================================
+    // LIVE SYSTEM 3: MICRO-BUSINESS POS & ORDER MANAGEMENT SYSTEM
+    // =========================================================================
+    let posProducts = [
+      { id: 1, name: 'Cold Brew Iced Coffee', price: 65, category: 'Beverages' },
+      { id: 2, name: 'Matcha Green Tea Latte', price: 85, category: 'Beverages' },
+      { id: 3, name: 'Classic Ham & Cheese Panini', price: 75, category: 'Snacks' },
+      { id: 4, name: 'Tuna Melt Sandwich', price: 80, category: 'Snacks' },
+      { id: 5, name: 'Chocolate Chip Cookie', price: 35, category: 'Pastries' },
+      { id: 6, name: 'Blueberry Muffins', price: 50, category: 'Pastries' }
+    ];
+
+    let posCart = [];
+    let salesHistory = [
+      { receiptNo: 'POS-1001', items: 'Cold Brew (1), Panini (1)', total: 140, time: '09:20 AM' },
+      { receiptNo: 'POS-1002', items: 'Matcha Latte (2)', total: 170, time: '10:05 AM' }
+    ];
+
+    function renderPosSystem() {
+      const body = document.getElementById('modal-system-body');
+      const subtotal = posCart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+      const vat = subtotal * 0.12;
+      const grandTotal = subtotal + vat;
+
+      body.innerHTML = `
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <!-- Left: Product Catalog -->
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex items-center justify-between">
+              <h4 class="font-display font-bold text-sm text-white">Campus Café Menu &amp; Products</h4>
+              <span class="text-xs text-slate-400">Click item to add to cart</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              ${posProducts.map(p => `
+                <div onclick="addToPosCart(${p.id})"
+                     class="glass-card rounded-2xl p-4 cursor-pointer hover:border-violet-500/50 transition flex items-center justify-between group">
+                  <div>
+                    <span class="text-[10px] uppercase font-semibold text-violet-400">${p.category}</span>
+                    <h5 class="font-display font-bold text-white text-sm group-hover:text-violet-300">${p.name}</h5>
+                    <p class="text-xs text-slate-400 mt-0.5">₱${p.price.toFixed(2)}</p>
+                  </div>
+                  <div class="w-8 h-8 rounded-xl bg-violet-600/20 group-hover:bg-violet-600 text-violet-300 group-hover:text-white flex items-center justify-center transition">
+                    <i class="fa-solid fa-plus text-xs"></i>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Right: Cart & Checkout -->
+          <div class="lg:col-span-5 bg-obsidian/90 border border-white/10 rounded-2xl p-4 flex flex-col justify-between space-y-4">
+            <div>
+              <h4 class="font-display font-bold text-sm text-white mb-3">Current Order Cart (${posCart.reduce((s, i) => s + i.qty, 0)})</h4>
+              
+              <div class="space-y-2 max-h-48 overflow-y-auto pr-1">
+                ${posCart.length === 0
+                  ? `<div class="py-8 text-center text-xs text-slate-500">Cart is empty. Click menu items on the left to add.</div>`
+                  : posCart.map(item => `
+                    <div class="flex items-center justify-between p-2.5 rounded-xl bg-surface border border-white/5 text-xs">
+                      <div>
+                        <p class="font-semibold text-white">${item.name}</p>
+                        <p class="text-slate-400">₱${item.price} × ${item.qty}</p>
+                      </div>
+                      <div class="flex items-center gap-2">
+                        <span class="font-bold text-violet-400">₱${(item.price * item.qty).toFixed(2)}</span>
+                        <button onclick="removeFromPosCart(${item.id})" class="text-slate-400 hover:text-red-400 px-1.5 py-1">
+                          <i class="fa-solid fa-trash text-[11px]"></i>
+                        </button>
+                      </div>
+                    </div>
+                  `).join('')}
+              </div>
+            </div>
+
+            <!-- Bill Computation & Checkout Button -->
+            <div class="pt-3 border-t border-white/10 space-y-2 text-xs">
+              <div class="flex justify-between text-slate-400">
+                <span>Subtotal</span>
+                <span>₱${subtotal.toFixed(2)}</span>
+              </div>
+              <div class="flex justify-between text-slate-400">
+                <span>VAT (12% Inclusive)</span>
+                <span>₱${vat.toFixed(2)}</span>
+              </div>
+              <div class="flex justify-between font-display font-bold text-sm text-white pt-1 border-t border-white/10">
+                <span>Total Amount Due</span>
+                <span class="text-violet-400">₱${grandTotal.toFixed(2)}</span>
+              </div>
+
+              <button onclick="checkoutPosOrder()"
+                      class="w-full mt-2 py-3 px-4 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold text-xs shadow-lg transition cursor-pointer flex items-center justify-center gap-2">
+                <i class="fa-solid fa-receipt"></i>
+                <span>Complete Order &amp; Print Receipt</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sales History Log -->
+        <div class="mt-4 bg-obsidian/90 border border-white/10 rounded-2xl p-4">
+          <h5 class="font-display font-bold text-xs text-white uppercase tracking-wider mb-2">Recent POS Transactions Log</h5>
+          <div class="space-y-1.5 text-xs text-slate-300">
+            ${salesHistory.map(s => `
+              <div class="flex items-center justify-between py-1.5 border-b border-white/5">
+                <span class="font-bold text-violet-400">${s.receiptNo}</span>
+                <span class="text-slate-400 truncate max-w-xs">${s.items}</span>
+                <span class="font-semibold text-white">₱${s.total.toFixed(2)}</span>
+                <span class="text-slate-500">${s.time}</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function addToPosCart(productId) {
+      const product = posProducts.find(p => p.id === productId);
+      const existing = posCart.find(i => i.id === productId);
+      if (existing) {
+        existing.qty++;
+      } else {
+        posCart.push({ id: product.id, name: product.name, price: product.price, qty: 1 });
+      }
+      showToast(`Added ${product.name} to cart.`, 'success');
+      renderPosSystem();
+    }
+
+    function removeFromPosCart(productId) {
+      posCart = posCart.filter(i => i.id !== productId);
+      renderPosSystem();
+    }
+
+    function checkoutPosOrder() {
+      if (posCart.length === 0) {
+        showToast('Cart is empty. Please add items before checkout.');
+        return;
+      }
+      const subtotal = posCart.reduce((sum, i) => sum + (i.price * i.qty), 0);
+      const total = subtotal * 1.12;
+      const itemsSummary = posCart.map(i => `${i.name} (${i.qty})`).join(', ');
+      const receiptNo = `POS-${1000 + salesHistory.length + 1}`;
+      const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+      salesHistory.unshift({ receiptNo, items: itemsSummary, total, time });
+      posCart = [];
+      showToast(`Order ${receiptNo} successfully processed!`, 'success');
+      renderPosSystem();
+    }
+  </script>
+
+</body>
+</html>
