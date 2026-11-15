@@ -5,13 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BS Information Technology | 3rd Year Student Portfolio</title>
   
-  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   
-  <!-- Google Fonts: Inter & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -46,7 +43,6 @@
       font-family: 'Inter', sans-serif;
     }
 
-    /* Glassmorphism Utilities */
     .glass-nav {
       background: rgba(11, 15, 25, 0.85);
       backdrop-filter: blur(16px);
@@ -74,7 +70,6 @@
       border: 1px solid rgba(99, 102, 241, 0.3);
     }
 
-    /* Custom Scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -92,11 +87,9 @@
 </head>
 <body class="selection:bg-indigo-500 selection:text-white">
 
-  <!-- ==================== NAVIGATION BAR ==================== -->
   <header class="fixed top-0 left-0 right-0 z-50 glass-nav">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       
-      <!-- Brand / Course Identity -->
       <a href="#home" class="flex items-center gap-2.5 group">
         <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-500 flex items-center justify-center text-white font-display font-bold text-lg shadow-lg shadow-indigo-600/30 group-hover:scale-105 transition">
           &lt;/&gt;
@@ -106,7 +99,6 @@
         </span>
       </a>
 
-      <!-- Desktop Navigation Menu -->
       <nav class="hidden md:flex items-center gap-1 bg-surface/80 p-1.5 rounded-2xl border border-white/10">
         <a href="#home" class="nav-link px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition">Home</a>
         <a href="#about" class="nav-link px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition">About</a>
@@ -116,7 +108,6 @@
         <a href="#contact" class="nav-link px-4 py-2 rounded-xl text-xs font-semibold text-slate-300 hover:text-white hover:bg-white/5 transition">Contact</a>
       </nav>
 
-      <!-- GitHub Repository CTA & Mobile Menu Toggle -->
       <div class="flex items-center gap-3">
         <a href="https://github.com" target="_blank" rel="noopener noreferrer"
            class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-surfaceLight/80 hover:bg-indigo-600/20 border border-white/10 hover:border-indigo-500/50 text-xs font-semibold text-slate-200 transition">
@@ -132,7 +123,6 @@
 
     </div>
 
-    <!-- Mobile Dropdown Menu -->
     <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-white/10 px-6 py-5 space-y-3">
       <a href="#home" class="mobile-link block text-sm font-semibold text-slate-300 hover:text-indigo-400 py-1">Home</a>
       <a href="#about" class="mobile-link block text-sm font-semibold text-slate-300 hover:text-indigo-400 py-1">About</a>
@@ -152,7 +142,6 @@
   <!-- ==================== MAIN CONTAINER ==================== -->
   <main class="pt-20">
 
-    <!-- ==================== 1. HOME / HERO SECTION ==================== -->
     <section id="home" class="relative min-h-[90vh] flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <!-- Background Glow Blobs -->
       <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
@@ -160,7 +149,6 @@
 
       <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         
-        <!-- Left Hero Content -->
         <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
           <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 text-xs sm:text-sm font-medium">
             <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
@@ -182,7 +170,6 @@
             A dedicated <strong class="text-slate-200 font-semibold">3rd Year IT Student</strong> specializing in designing responsive web interfaces, relational database schemas, and practical full-stack management systems using PHP, MySQL, HTML5, CSS3, and modern JavaScript.
           </p>
 
-          <!-- Primary & Secondary CTA Buttons -->
           <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
             <a href="#projects"
                class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white font-semibold text-sm shadow-lg shadow-indigo-600/30 transition transform hover:-translate-y-0.5">
@@ -196,8 +183,7 @@
               <span>Get In Touch</span>
             </a>
           </div>
-
-          <!-- Quick Tech & GitHub Links -->
+_
           <div class="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-5 text-slate-400 text-sm">
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center gap-2">
               <i class="fa-brands fa-github text-lg text-indigo-400"></i> github.com/bsit-dev
@@ -209,14 +195,13 @@
           </div>
         </div>
 
-        <!-- Right Profile Photo Card -->
         <div class="lg:col-span-5 flex justify-center">
           <div class="relative group w-72 sm:w-80">
             <!-- Outer Gradient Ring -->
             <div class="absolute -inset-1.5 rounded-3xl bg-gradient-to-tr from-indigo-600 via-violet-500 to-cyan-400 opacity-70 blur-md group-hover:opacity-100 transition duration-500"></div>
             
             <div class="relative glass-card rounded-3xl p-4">
-              <!-- Profile Image Wrapper -->
+            
               <div class="relative w-full aspect-square rounded-2xl overflow-hidden bg-slate-900 border border-white/10">
                 <!-- =====================================================================
                      HOW TO DISPLAY YOUR OWN PHOTO ON GITHUB:
@@ -259,7 +244,6 @@
       </div>
     </section>
 
-    <!-- ==================== 2. ABOUT SECTION ==================== -->
     <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5 relative">
       <div class="max-w-6xl mx-auto">
         <div class="text-center max-w-2xl mx-auto mb-14">
@@ -296,7 +280,6 @@
             </div>
           </div>
 
-          <!-- Quick Stats / Highlights -->
           <div class="lg:col-span-5 space-y-4">
             <div class="glass-card rounded-2xl p-5 flex items-center gap-4">
               <div class="w-12 h-12 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0">
@@ -335,7 +318,6 @@
       </div>
     </section>
 
-    <!-- ==================== 3. SKILLS SECTION ==================== -->
     <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-surface/30">
       <div class="max-w-6xl mx-auto">
         <div class="text-center max-w-2xl mx-auto mb-14">
@@ -348,7 +330,6 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           
-          <!-- Skill Card 1: Frontend -->
           <div class="glass-card rounded-2xl p-6 space-y-4">
             <div class="w-12 h-12 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
               <i class="fa-solid fa-laptop-code text-xl"></i>
@@ -370,7 +351,6 @@
             </div>
           </div>
 
-          <!-- Skill Card 2: Backend -->
           <div class="glass-card rounded-2xl p-6 space-y-4">
             <div class="w-12 h-12 rounded-xl bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center text-cyan-400">
               <i class="fa-solid fa-server text-xl"></i>
@@ -392,7 +372,6 @@
             </div>
           </div>
 
-          <!-- Skill Card 3: Databases -->
           <div class="glass-card rounded-2xl p-6 space-y-4">
             <div class="w-12 h-12 rounded-xl bg-violet-500/15 border border-violet-500/30 flex items-center justify-center text-violet-400">
               <i class="fa-solid fa-database text-xl"></i>
@@ -440,7 +419,6 @@
       </div>
     </section>
 
-    <!-- ==================== 4. PROJECTS & LIVE SYSTEMS SECTION ==================== -->
     <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5">
       <div class="max-w-7xl mx-auto">
         <div class="text-center max-w-2xl mx-auto mb-14">
@@ -453,7 +431,6 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
-          <!-- SYSTEM 1: Digital Queue & Appointment System -->
           <div class="glass-card rounded-3xl overflow-hidden flex flex-col group">
             <div class="p-6 bg-gradient-to-br from-indigo-900/40 via-surface to-surfaceLight border-b border-white/10 relative">
               <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-500/40 text-indigo-300 text-[11px] font-semibold">
@@ -490,7 +467,6 @@
             </div>
           </div>
 
-          <!-- SYSTEM 2: IT Lab Equipment & Inventory Tracker -->
           <div class="glass-card rounded-3xl overflow-hidden flex flex-col group">
             <div class="p-6 bg-gradient-to-br from-cyan-900/40 via-surface to-surfaceLight border-b border-white/10 relative">
               <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 text-[11px] font-semibold">
@@ -526,7 +502,6 @@
             </div>
           </div>
 
-          <!-- SYSTEM 3: Micro-Business POS & Order Management System -->
           <div class="glass-card rounded-3xl overflow-hidden flex flex-col group">
             <div class="p-6 bg-gradient-to-br from-violet-900/40 via-surface to-surfaceLight border-b border-white/10 relative">
               <div class="absolute top-4 right-4 px-3 py-1 rounded-full bg-violet-500/20 border border-violet-500/40 text-violet-300 text-[11px] font-semibold">
@@ -566,7 +541,6 @@
       </div>
     </section>
 
-    <!-- ==================== 5. EDUCATION SECTION ==================== -->
     <section id="education" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5 bg-surface/30">
       <div class="max-w-4xl mx-auto">
         <div class="text-center max-w-2xl mx-auto mb-14">
@@ -579,7 +553,6 @@
 
         <div class="space-y-6 relative before:absolute before:inset-0 before:left-4 before:w-0.5 before:bg-indigo-500/30">
           
-          <!-- Timeline Item 1 -->
           <div class="relative pl-8 sm:pl-10">
             <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-indigo-500 ring-4 ring-obsidian"></span>
             <div class="glass-card rounded-2xl p-6">
@@ -604,7 +577,6 @@
             </div>
           </div>
 
-          <!-- Timeline Item 2 -->
           <div class="relative pl-8 sm:pl-10">
             <span class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-cyan-400 ring-4 ring-obsidian"></span>
             <div class="glass-card rounded-2xl p-6">
@@ -625,7 +597,6 @@
       </div>
     </section>
 
-    <!-- ==================== 6. CONTACT SECTION ==================== -->
     <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 border-t border-white/5">
       <div class="max-w-5xl mx-auto">
         <div class="text-center max-w-2xl mx-auto mb-14">
@@ -679,7 +650,6 @@
             </div>
           </div>
 
-          <!-- Interactive Contact Form -->
           <div class="lg:col-span-7 glass-card rounded-2xl p-6 sm:p-8">
             <form id="contact-form" class="space-y-4" novalidate>
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -707,7 +677,6 @@
                 <span>Send Message</span>
               </button>
 
-              <!-- Confirmation Banner -->
               <div id="contact-success" class="hidden rounded-xl bg-emerald-500/15 border border-emerald-500/40 p-4 text-xs sm:text-sm text-emerald-300 flex items-center gap-3">
                 <i class="fa-solid fa-circle-check text-lg text-emerald-400"></i>
                 <div>
@@ -723,7 +692,6 @@
 
   </main>
 
-  <!-- ==================== FOOTER ==================== -->
   <footer class="relative z-10 border-t border-white/10 bg-obsidian/90 py-8 px-4 sm:px-6 lg:px-8">
     <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
       <p>&copy; <span id="current-year">2026</span> BS Information Technology Portfolio. Built with HTML, CSS &amp; JavaScript.</p>
@@ -734,11 +702,9 @@
     </div>
   </footer>
 
-  <!-- ==================== SYSTEM LAUNCHER MODAL ==================== -->
   <div id="system-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-obsidian/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
     <div class="relative w-full max-w-4xl max-h-[90vh] glass-modal rounded-3xl shadow-2xl flex flex-col overflow-hidden border border-indigo-500/30">
       
-      <!-- Modal Header -->
       <div class="px-6 py-4 bg-surface/90 border-b border-white/10 flex items-center justify-between shrink-0">
         <div class="flex items-center gap-3">
           <div id="modal-system-icon" class="w-9 h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white shadow-md">
@@ -756,15 +722,13 @@
         </button>
       </div>
 
-      <!-- Modal Body (Dynamic System Container) -->
       <div id="modal-system-body" class="p-6 overflow-y-auto flex-1 space-y-6">
-        <!-- System injected here via JS -->
+
       </div>
 
     </div>
   </div>
 
-  <!-- ==================== TOAST NOTIFICATION ==================== -->
   <div id="toast-notification" class="fixed bottom-6 right-6 z-50 translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
     <div class="glass-card rounded-2xl px-5 py-3.5 border border-indigo-500/40 bg-obsidian/95 shadow-xl flex items-center gap-3 text-xs sm:text-sm text-white">
       <i id="toast-icon" class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
@@ -772,12 +736,10 @@
     </div>
   </div>
 
-  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
   <script>
-    // Set Footer Year Automatically
+
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
-    // Mobile Menu Toggle
     const mobileBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
 
@@ -791,7 +753,6 @@
       });
     });
 
-    // Profile Photo Upload Previewer
     const photoInput = document.getElementById('photo-upload-input');
     const photoImg = document.getElementById('profile-photo-img');
 
@@ -806,8 +767,7 @@
         reader.readAsDataURL(file);
       }
     });
-
-    // Copy to Clipboard Utility
+    
     function copyText(text, successMessage) {
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
@@ -836,7 +796,6 @@
       document.body.removeChild(textArea);
     }
 
-    // Toast Notification System
     function showToast(message, type = 'success') {
       const toast = document.getElementById('toast-notification');
       const toastText = document.getElementById('toast-text');
@@ -858,7 +817,6 @@
       }, 3500);
     }
 
-    // ---------------- CONTACT FORM SUBMISSION ----------------
     document.getElementById('contact-form').addEventListener('submit', (e) => {
       e.preventDefault();
       const subject = document.getElementById('contact-subject').value.trim();
@@ -875,9 +833,6 @@
       e.target.reset();
     });
 
-    // =========================================================================
-    // MODAL & LIVE SYSTEMS ROUTING
-    // =========================================================================
     function openSystemModal(systemKey) {
       const modal = document.getElementById('system-modal');
       const title = document.getElementById('modal-system-title');
@@ -925,9 +880,6 @@
       }
     });
 
-    // =========================================================================
-    // LIVE SYSTEM 1: DIGITAL QUEUE & APPOINTMENT MANAGEMENT SYSTEM
-    // =========================================================================
     let queueCounter = 104;
     let nowServing = { ticket: 'REG-100', studentId: '2024-0105', service: 'Transcript of Records' };
     let queueList = [
@@ -1051,9 +1003,6 @@
       renderQueueSystem();
     }
 
-    // =========================================================================
-    // LIVE SYSTEM 2: CAMPUS INVENTORY & EQUIPMENT BORROWING TRACKER
-    // =========================================================================
     let inventoryFilter = 'all';
     let inventoryItems = [
       { id: 'IT-001', name: 'Dell Latitude 5430 Laptop', category: 'Computing', status: 'Available', borrower: '-' },
@@ -1075,7 +1024,7 @@
       });
 
       body.innerHTML = `
-        <!-- Top Stats & Filter Bar -->
+        
         <div class="flex flex-wrap items-center justify-between gap-4 bg-obsidian/90 border border-white/10 rounded-2xl p-4">
           <div class="flex items-center gap-4 text-xs sm:text-sm">
             <span class="px-3 py-1.5 rounded-xl bg-emerald-500/15 text-emerald-300 font-semibold">
@@ -1093,7 +1042,6 @@
           </div>
         </div>
 
-        <!-- Quick Checkout & Add Device Forms -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-3">
           <form id="borrow-form" class="flex flex-col sm:flex-row gap-2 bg-obsidian/90 border border-white/10 rounded-2xl p-3.5">
             <select id="borrow-asset-id" class="flex-1 px-3 py-2 rounded-xl bg-surface border border-white/10 text-xs text-white focus:border-cyan-400 focus:outline-none">
@@ -1120,7 +1068,6 @@
           </form>
         </div>
 
-        <!-- Equipment Table -->
         <div class="bg-obsidian/90 border border-white/10 rounded-2xl p-4 overflow-x-auto">
           <table class="w-full text-left text-xs">
             <thead class="text-slate-400 border-b border-white/10">
@@ -1201,9 +1148,6 @@
       }
     }
 
-    // =========================================================================
-    // LIVE SYSTEM 3: MICRO-BUSINESS POS & ORDER MANAGEMENT SYSTEM
-    // =========================================================================
     let posProducts = [
       { id: 1, name: 'Cold Brew Iced Coffee', price: 65, category: 'Beverages' },
       { id: 2, name: 'Matcha Green Tea Latte', price: 85, category: 'Beverages' },
@@ -1251,7 +1195,6 @@
             </div>
           </div>
 
-          <!-- Right: Cart & Checkout -->
           <div class="lg:col-span-5 bg-obsidian/90 border border-white/10 rounded-2xl p-4 flex flex-col justify-between space-y-4">
             <div>
               <h4 class="font-display font-bold text-sm text-white mb-3">Current Order Cart (${posCart.reduce((s, i) => s + i.qty, 0)})</h4>
@@ -1276,7 +1219,6 @@
               </div>
             </div>
 
-            <!-- Bill Computation & Checkout Button -->
             <div class="pt-3 border-t border-white/10 space-y-2 text-xs">
               <div class="flex justify-between text-slate-400">
                 <span>Subtotal</span>
@@ -1300,7 +1242,6 @@
           </div>
         </div>
 
-        <!-- Sales History Log -->
         <div class="mt-4 bg-obsidian/90 border border-white/10 rounded-2xl p-4">
           <h5 class="font-display font-bold text-xs text-white uppercase tracking-wider mb-2">Recent POS Transactions Log</h5>
           <div class="space-y-1.5 text-xs text-slate-300">
